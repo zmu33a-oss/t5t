@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيقي للترندات</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .page { height: 100vh; width: 100%; }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <header class="page bg-cover bg-center bg-no-repeat bg-gray-900" style="background-image: url('top.png');">
+        <div class="flex h-full flex-col items-center justify-center text-center px-4">
+            
+            <a href="#trend1" class="mt-12 border-2 border-white px-10 py-4 rounded-[4px] font-bold hover:bg-white hover:text-black transition">
+                ابدأ التصفح
+            </a>
+        </div>
+    </header>
+
+    <section id="trend1" class="page flex items-center justify-center bg-white p-6">
+        <div class="max-w-md w-full text-center">
+            <div class="h-60 bg-gray-800 rounded-lg mb-6 flex items-center justify-center">
+                صورة الترند هنا
+            </div>
+            <h2 class="text-3xl font-bold mb-4">عنوان الترند الأول</h2>
+            <p class="text-gray-400 mb-8">وصف بسيط للترند يظهر هنا.</p>
+            <button class="border border-white py-2 px-6 rounded-[4px]">التفاصيل</button>
+        </div>
+    </section>
+
+</body>
+</html>
