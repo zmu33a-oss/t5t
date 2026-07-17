@@ -8,28 +8,76 @@
     <style>
         html { scroll-behavior: smooth; }
         .page { height: 100vh; width: 100%; }
+
+        /* حركة النيون المستمرة */
+        @keyframes borderRotate {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animate-border {
+            background: linear-gradient(90deg, #ff007f, #00d4ff, #ff007f);
+            background-size: 200% 200%;
+            animation: borderRotate 3s ease infinite;
+            padding: 3px; /* سمك إطار النيون */
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        /* تنسيق القائمة داخل الإطار */
+        .neon-select {
+            background-color: black;
+            padding: 16px 32px;
+            border-radius: 9px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            appearance: none;
+            min-width: 180px;
+        }
     </style>
 </head>
 <body class="bg-black text-white">
 
-    <!-- الصفحة الأولى (اختيار الدولة) -->
+    <!-- الصفحة الأولى -->
     <header class="page bg-cover bg-center bg-no-repeat bg-gray-900" style="background-image: url('top.png');">
         <div class="flex h-full flex-col items-center justify-center text-center px-4">
-            <h1 class="text-4xl font-bold mb-8">اختر دولتك للمتابعة</h1>
-            <select id="countrySelect" class="bg-black/50 border-2 border-white px-10 py-4 rounded-[4px] text-white font-bold cursor-pointer outline-none">
-                <option value="" disabled selected>اختر الدولة</option>
-                <option value="SA">السعودية</option>
-                <option value="AE">الإمارات</option>
-                <option value="KW">الكويت</option>
-                <option value="QA">قطر</option>
-                <option value="BH">البحرين</option>
-                <option value="OM">عمان</option>
-            </select>
+            <h1 class="text-4xl font-bold mb-10"></h1>
+            
+            <!-- حاوية المربعات -->
+            <div class="flex flex-row gap-6 items-center justify-center">
+                
+                <!-- مربع الدولة -->
+                <div class="animate-border">
+                    <select id="countrySelect" class="neon-select">
+                        <option value="" disabled selected>الدولة</option>
+                        <option value="SA">السعودية</option>
+                        <option value="AE">الإمارات</option>
+                        <option value="KW">الكويت</option>
+                        <option value="QA">قطر</option>
+                        <option value="BH">البحرين</option>
+                        <option value="OM">عمان</option>
+                    </select>
+                </div>
+
+                <!-- مربع المنصة -->
+                <div class="animate-border">
+                    <select id="platformSelect" class="neon-select">
+                        <option value="GOOGLE">Google</option>
+                        <option value="X">X</option>
+                        <option value="TIKTOK">TikTok</option>
+                    </select>
+                </div>
+            </div>
         </div>
     </header>
 
     <!-- حاوية الترندات -->
     <div id="trendsContainer" class="bg-white">
+        <!-- تكرار للأقسام الخمسة -->
         <section id="trend1" class="min-h-screen flex items-center justify-center p-6 border-b border-gray-200">
             <div class="max-w-md w-full text-center text-black">
                 <h2 class="title text-3xl font-bold mb-4">جاري تحميل الترند الأول...</h2>
@@ -67,7 +115,6 @@
         </section>
     </div>
 
-    <!-- ربط ملف الجافاسكريبت الخارجي -->
     <script src="script.js"></script>
 </body>
 </html>
